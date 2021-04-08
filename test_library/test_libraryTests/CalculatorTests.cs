@@ -9,7 +9,7 @@ namespace test_library.Tests
     [TestClass()]
     public class CalculatorTests
     {
-        private int expectedSum = 5;
+        private int expectedSum = 50;
         private int expectedDifference = 5;
 
         [TestMethod()]
