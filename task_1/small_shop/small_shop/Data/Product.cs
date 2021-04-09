@@ -10,7 +10,8 @@ namespace small_shop.Data
         private String Type;
         private String Production_Date;
         private String Expiration_Date;
-        private int price;
+        private int Price;
+        private bool Is_On_Sale;
 
         public Product() { }
 
@@ -20,6 +21,7 @@ namespace small_shop.Data
             this.Type = type;
             this.Production_Date = pro_d;
             this.Expiration_Date = exp_d;
+            this.Is_On_Sale = false;
         }
 
         public String Get_Product_Name()
@@ -29,12 +31,23 @@ namespace small_shop.Data
         
         public void setPrice(int price)
         {
-            this.price = price;
+            this.Price = price;
         }
 
         public int getPrice()
         {
-            return price;
+            return Price;
+        }
+
+        public void setSale(int n_price)
+        {
+            this.Is_On_Sale = true;
+            this.Price = n_price;
+        }
+
+        public bool getSaleState()
+        {
+            return Is_On_Sale;
         }
     }
 }
