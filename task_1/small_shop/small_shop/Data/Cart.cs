@@ -1,10 +1,11 @@
 ﻿using System;
 namespace small_shop.Data
 {
-    public class Cart 
+    public class Cart : Product
     {
         private String Good;
         private int Amount;
+        private int Sprice;
         private int Fprice;
 
         public Cart() { }
@@ -24,6 +25,7 @@ namespace small_shop.Data
         {
             return Amount;
         }
+
         public int Get_Good_Fprice()
         {
             return 0;
