@@ -4,8 +4,9 @@ using System.Text;
 
 namespace small_shop.Data
 {
-    public class Product
+    public class Product : Cart
     {
+        private String IDD;
         private String Name;
         private String Type;
         private String Production_Date;
