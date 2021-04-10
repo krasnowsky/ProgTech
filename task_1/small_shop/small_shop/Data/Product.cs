@@ -28,7 +28,12 @@ namespace small_shop.Data
         {
             return this.Name;
         }
-        
+
+        public String Get_Product_Type()
+        {
+            return this.Type;
+        }
+
         public void setPrice(int price)
         {
             this.Price = price;

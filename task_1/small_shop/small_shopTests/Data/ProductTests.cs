@@ -27,6 +27,14 @@ namespace small_shop.Data.Tests
         }
 
         [TestMethod()]
+        public void ProductTestType()
+        {
+            Product milk = new Product("milk", "liquid", "19.02.2000", "19.03.2000");
+
+            Assert.AreEqual("liquid", milk.Get_Product_Type());
+        }
+
+        [TestMethod()]
         public void ProductTestSale()
         {
             Product milk = new Product("milk", "liquid", "19.02.2000", "19.03.2000");
