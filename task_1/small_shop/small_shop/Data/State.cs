@@ -9,7 +9,11 @@ namespace small_shop.Data
         private int Amount_Of_Good;
         private bool Is_Available;
 
-        public State() { }
+        public State(int value, bool state) 
+        {
+            this.Amount_Of_Good = value;
+            this.Is_Available = state;
+        }
 
         public int Get_Amount()
         {
@@ -19,6 +23,11 @@ namespace small_shop.Data
         public void Set_Amount(int value)
         {
             this.Amount_Of_Good = value;
+        }
+
+        public void Change_Amount(int value)
+        {
+            this.Amount_Of_Good += value;
         }
 
         public bool Get_Availability()

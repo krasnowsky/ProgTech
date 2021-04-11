@@ -12,9 +12,7 @@ namespace small_shop.Data.Tests
         [TestMethod()]
         public void StateAmountTest()
         {
-            small_shop.Data.State state = new small_shop.Data.State();
-
-            state.Set_Amount(20);
+            State state = new State(20, true);
 
             Assert.AreEqual(20, state.Get_Amount());
         }
@@ -22,9 +20,7 @@ namespace small_shop.Data.Tests
         [TestMethod()]
         public void StateAvailabilityTest()
         {
-            small_shop.Data.State state = new small_shop.Data.State();
-
-            state.Set_Availability(true);
+            State state = new State(20, true);
 
             Assert.AreEqual(true, state.Get_Availability());
         }

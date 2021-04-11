@@ -9,16 +9,41 @@ namespace small_shop.Data.Tests
     [TestClass()]
     public class SmallShopDataTests
     {
+        private SmallShopData data = new SmallShopData();
         [TestMethod()]
         public void AddCustomerTest()
         {
-            SmallShopData small_shop = new SmallShopData();
-            Customer John = new Customer("John", "Smith", "1");
-            Cart Johns_Cart = new Cart();
+            data.Add_Customer("John", "Smith", "1");
 
-            small_shop.Add_Customer(John, Johns_Cart);
+            Assert.AreEqual(1, data.Get_Number_Of_Customer());
+        }
 
-            Assert.AreEqual(1, small_shop.Get_Number_Of_Customer());
+        [TestMethod()]
+        public void GetPriceTest()
+        {
+            data.Add_Product("milk", 7);
+
+            Assert.AreEqual(7, data.Get_Price(0));
+        }
+
+        [TestMethod()]
+        public void ChangeAmountTest()
+        {
+            data.Add_Product("milk", 7);
+            data.Add_State(20, true);
+            data.Change_Product_Amount("milk", 10, -1);
+
+            Assert.AreEqual(10, data.Get_Product_Amount(0));
+        }
+
+        [TestMethod()]
+        public void GetIdTest()
+        {
+            data.Add_Product("milk", 5);
+
+            data.Add_Product("water", 5);
+
+            Assert.AreEqual(1, data.Get_Good_Id("water"));
         }
     }
 }

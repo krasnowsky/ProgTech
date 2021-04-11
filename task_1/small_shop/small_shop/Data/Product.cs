@@ -9,7 +9,6 @@ namespace small_shop.Data
     {
         private String IDD;
         private String Name;
-        private int Amount;
         private int Price;
         private bool Is_On_Sale;
 
@@ -52,11 +51,6 @@ namespace small_shop.Data
         public bool Get_Sale_State()
         {
             return Is_On_Sale;
-        }
-
-        public void Set_Amount(int value)
-        {
-            this.Amount = value;
         }
     }
 }
