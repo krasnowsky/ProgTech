@@ -14,7 +14,7 @@ namespace small_shop.Data.Tests
         [TestMethod()]
         public void CartTestsNameOfGood()
         {
-            new_cart.Add_To_Cart("milk", 50);
+            new_cart.Add_To_Cart("milk", 50, 2);
 
             Assert.AreEqual("milk", new_cart.Get_Good_Name(0));
         }

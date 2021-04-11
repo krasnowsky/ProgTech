@@ -31,7 +31,7 @@ namespace small_shop.Data.Tests
         {
             data.Add_Product("milk", 7);
             data.Add_State(20, true);
-            data.Change_Product_Amount("milk", 10, -1);
+            data.Change_Product_Amount("milk", 10, 7, -1);
 
             Assert.AreEqual(10, data.Get_Product_Amount(0));
         }

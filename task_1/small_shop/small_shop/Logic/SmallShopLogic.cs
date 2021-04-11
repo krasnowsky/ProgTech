@@ -4,30 +4,32 @@ namespace small_shop.Logic
 {
     public class SmallShopLogic
     {
-        private Data.SmallShopData data = new Data.SmallShopData();
+        private Data.SmallShopData data;
+        public SmallShopLogic(Data.SmallShopData outside_data)
+        {
+            data = outside_data;
+        }
+
         public void Create_New_Customer(String fname, String lname, String customer_id)
         {
             data.Add_Customer(fname, lname, customer_id);
         }
 
-        public void Add_Product_To_Cart(String name, int amount)
+        public void Add_Product_To_Cart(String name, int amount, int price, int value)
         {
-            data.Add_Customer("John", "Smith", "1");
-            data.Add_Product("milk", 7);
-            data.Add_Good_To_Cart("milk", 2, 0);
-
+            data.Add_Good_To_Cart(name, amount, price, value);
         }
 
-        public int Buy(String name, int amount)
+        public int Buy(String name, int amount, int price)
         {     
-            data.Change_Product_Amount(name, amount, -1);
-            return data.Get_Price(data.Get_Good_Id(name));
+            data.Change_Product_Amount(name, amount, price, -1);
+            return amount*data.Get_Price(data.Get_Good_Id(name));
         }
 
         public void Delivery_Of_Goods(String name, int price, int amount)
         { 
             data.Add_Product(name, price);
-            data.Change_Product_Amount(name, amount, 1);
+            data.Change_Product_Amount(name, amount, price, 1);
         }
     }
 }

@@ -7,7 +7,6 @@ namespace small_shop.Data
     //describes product of one type eg. tomatoes
     public class Product
     {
-        private String IDD;
         private String Name;
         private int Price;
         private bool Is_On_Sale;

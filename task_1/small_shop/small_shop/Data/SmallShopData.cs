@@ -13,9 +13,14 @@ namespace small_shop.Data
         private List<Event> events = new List<Event>();
         public SmallShopData () { }
 
-        public void Add_Good_To_Cart(String name, int amount, int value)
+        public void Add_Good_To_Cart(String name, int amount, int price, int value)
         {
-            carts[value].Add_To_Cart(name, amount);
+            carts[value].Add_To_Cart(name, amount, price);
+        }
+
+        public int Get_Final_Price_Of_The_Cart(int value)
+        {
+           return carts[value].Get_Good_Final_Price();
         }
 
         public void Add_Customer(String fname, String lname, String customer_id)
@@ -25,6 +30,11 @@ namespace small_shop.Data
 
             Cart new_cart = new Cart();
             this.carts.Add(new_cart);
+        }
+
+        public Cart Get_Cart(int value)
+        {
+            return carts[value];
         }
 
         //created only for the sake of tests
@@ -41,7 +51,15 @@ namespace small_shop.Data
         public void Add_Product(String name, int price)
         {
             Data.Product new_product = new Data.Product(name, price);
-            this.products.Add(new_product);
+            if(products.Count == 0) this.products.Add(new_product);
+            else
+            {
+                for (int i = 0; i < products.Count; i++)
+                {
+                    if (products[i].Get_Product_Name() == name && products[i].Get_Price() == price) break;
+                    else this.products.Add(new_product);
+                }
+            }
         }
 
         public int Get_Good_Id(String name)
@@ -57,13 +75,18 @@ namespace small_shop.Data
         }
 
         //method to change a bit
-        public void Change_Product_Amount(String name, int value, int sign)
+        public void Change_Product_Amount(String name, int value, int price, int sign)
         {
             for (int i = 0; i < products.Count; i++)
             {
-                if (products[i].Get_Product_Name() == name)
+                if (products[i].Get_Product_Name() == name && products[i].Get_Price() == price)
                 {
                     this.states[i].Change_Amount(sign*value);
+                }
+                else
+                {
+                    State new_state = new State(sign*value, true);
+                    this.states.Add(new_state);
                 }
             }
         }

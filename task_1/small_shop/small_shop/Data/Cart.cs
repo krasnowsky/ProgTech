@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace small_shop.Data
 {
     //describes the current state of the cart
-    public class Cart : SmallShopData
+    public class Cart 
     {
         private int Final_Price;
         private List<int> Amounts_Of_Goods_In_Cart = new List<int>();
@@ -12,9 +12,9 @@ namespace small_shop.Data
 
         public Cart() { }
 
-        public void Add_To_Cart(String name, int amount)
+        public void Add_To_Cart(String name, int amount, int price)
         {
-            Product new_product = new Product(name);
+            Product new_product = new Product(name, price);
             this.Products_In_Cart.Add(new_product);
             this.Amounts_Of_Goods_In_Cart.Add(amount);
         }
