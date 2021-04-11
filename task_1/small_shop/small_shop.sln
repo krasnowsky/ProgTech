@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "small_shop", "small_shop\small_shop.csproj", "{2A51A03D-3259-4E90-998D-77FA36A6CF78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "small_shop", "small_shop\small_shop.csproj", "{2A51A03D-3259-4E90-998D-77FA36A6CF78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "small_shopTests", "small_shopTests\small_shopTests.csproj", "{D54B475E-6A04-4D9E-A0F6-8C2CCB33B93E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "small_shopTests", "small_shopTests\small_shopTests.csproj", "{D54B475E-6A04-4D9E-A0F6-8C2CCB33B93E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B42022D3-36E9-4C7E-A93D-6FBCEF3E8194}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\README.md = ..\..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

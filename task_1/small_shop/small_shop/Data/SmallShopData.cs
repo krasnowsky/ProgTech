@@ -19,6 +19,11 @@ namespace small_shop.Data
             this.carts.Add(new_cart);
         }
 
+        public void Add_Cart(Cart new_cart)
+        {
+            this.carts.Add(new_cart);
+        }
+
         public int Get_Number_Of_Customer()
         {
             return this.customers.Count;

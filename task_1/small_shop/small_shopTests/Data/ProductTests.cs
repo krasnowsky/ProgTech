@@ -12,38 +12,28 @@ namespace small_shop.Data.Tests
         [TestMethod()]
         public void ProductTestPrice()
         {
-            Product milk = new Product("milk", "liquid", "19.02.2000", "19.03.2000");
-            milk.setPrice(50);
+            Product milk = new Product("milk", 50);
 
-            Assert.AreEqual(50, milk.getPrice());
+            Assert.AreEqual(50, milk.Get_Price());
         }
 
         [TestMethod()]
         public void ProductTestName()
         {
-            Product milk = new Product("milk", "liquid", "19.02.2000", "19.03.2000");
+            Product milk = new Product("milk", 20);
 
             Assert.AreEqual("milk", milk.Get_Product_Name());
         }
 
         [TestMethod()]
-        public void ProductTestType()
-        {
-            Product milk = new Product("milk", "liquid", "19.02.2000", "19.03.2000");
-
-            Assert.AreEqual("liquid", milk.Get_Product_Type());
-        }
-
-        [TestMethod()]
         public void ProductTestSale()
         {
-            Product milk = new Product("milk", "liquid", "19.02.2000", "19.03.2000");
+            Product milk = new Product("milk", 50);
 
-            milk.setPrice(20);
-            milk.setSale(15);
+            milk.Set_Sale(15);
 
-            Assert.AreEqual(15, milk.getPrice());
-            Assert.AreEqual(true, milk.getSaleState());
+            Assert.AreEqual(15, milk.Get_Price());
+            Assert.AreEqual(true, milk.Get_Sale_State());
         }
     }
 }

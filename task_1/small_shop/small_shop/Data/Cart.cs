@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace small_shop.Data
 {
     //describes the current state of the cart
-    public class Cart : Product
+    public class Cart
     {
         private int Final_Price;
         private List<int> Amounts_Of_Goods_In_Cart = new List<int>();
@@ -12,9 +12,9 @@ namespace small_shop.Data
 
         public Cart() { }
 
-        public void Add_To_Cart(String good, int amount)
+        public void Add_To_Cart(Product new_product, int amount)
         {
-            this.Products_In_Cart.Add(new Product(good));
+            this.Products_In_Cart.Add(new_product);
             this.Amounts_Of_Goods_In_Cart.Add(amount);
         }
 
@@ -28,12 +28,13 @@ namespace small_shop.Data
             return this.Amounts_Of_Goods_In_Cart[value];
         }
 
-        public void Get_Good_Final_Price()
+        public int Get_Good_Final_Price()
         {
             for (int i = 0; i < Products_In_Cart.Count; i++)
             {
-                Final_Price = Products_In_Cart[i].Get_Price() * Amounts_Of_Goods_In_Cart[i];
-            }    
+                Final_Price += Products_In_Cart[i].Get_Price() * Amounts_Of_Goods_In_Cart[i];
+            }
+            return Final_Price;
         }
     }
 }
