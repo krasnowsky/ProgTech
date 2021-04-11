@@ -4,24 +4,27 @@ using System.Text;
 
 namespace small_shop.Data
 {
+    //describes product of one type eg. tomatoes
     public class Product
     {
         private String IDD;
         private String Name;
-        private String Type;
-        private String Production_Date;
-        private String Expiration_Date;
+        private int Amount;
         private int Price;
         private bool Is_On_Sale;
 
         public Product() { }
 
-        public Product(String name, String type, String pro_d, String exp_d)
+        public Product(String name)
         {
             this.Name = name;
-            this.Type = type;
-            this.Production_Date = pro_d;
-            this.Expiration_Date = exp_d;
+            this.Is_On_Sale = false;
+        }
+
+        public Product(String name, int n_price)
+        {
+            this.Name = name;
+            this.Price = n_price;
             this.Is_On_Sale = false;
         }
 
@@ -30,30 +33,30 @@ namespace small_shop.Data
             return this.Name;
         }
 
-        public String Get_Product_Type()
-        {
-            return this.Type;
-        }
-
-        public void setPrice(int price)
+        public void Set_Price(int price)
         {
             this.Price = price;
         }
 
-        public int getPrice()
+        public int Get_Price()
         {
             return Price;
         }
 
-        public void setSale(int n_price)
+        public void Set_Sale(int n_price)
         {
             this.Is_On_Sale = true;
             this.Price = n_price;
         }
 
-        public bool getSaleState()
+        public bool Get_Sale_State()
         {
             return Is_On_Sale;
+        }
+
+        public void Set_Amount(int value)
+        {
+            this.Amount = value;
         }
     }
 }

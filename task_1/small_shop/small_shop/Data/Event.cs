@@ -4,7 +4,12 @@ using System.Text;
 
 namespace small_shop.Data
 {
-    class Event
+    public class Event
     {
+        private String ID;
+        public Event(String id) 
+        {
+            this.ID = id;        
+        }
     }
 }
