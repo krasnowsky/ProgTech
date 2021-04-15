@@ -31,7 +31,12 @@ namespace small_shop.Data
             Cart new_cart = new Cart();
             this.carts.Add(new_cart);
         }
-
+/*
+        public String Get_Customer_Name(String fname, String lname, String customer_id)
+        {
+            return customers[customer_id].fname;
+        }
+*/
         public Cart Get_Cart(int value)
         {
             return carts[value];
