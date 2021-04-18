@@ -13,6 +13,11 @@ namespace small_shop.Data
         private List<Event> events = new List<Event>();
         public SmallShopData () { }
 
+        public void Add_Event(Event new_event)
+        {
+            this.events.Add(new_event);
+        }
+
         public void Add_Good_To_Cart(String name, int amount, int price, int value)
         {
             carts[value].Add_To_Cart(name, amount, price);
@@ -36,12 +41,6 @@ namespace small_shop.Data
         {
             return events.Count;
         }
-
-        public Event GetEvent(int i)
-        {
-            return events.Find(x => x.ID == i);
-        }
-
 
         public Cart Get_Cart(int value)
         {

@@ -10,7 +10,7 @@ namespace small_shop.Logic
             data = outside_data;
         }
 
-        public void Create_New_Customer(String fname, String lname, String customer_id)
+        public void Create_New_Customer(String fname, String lname, int customer_id)
         {
             data.Add_Customer(fname, lname, customer_id);
         }

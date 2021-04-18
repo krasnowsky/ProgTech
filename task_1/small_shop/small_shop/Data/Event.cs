@@ -4,38 +4,41 @@ using System.Text;
 
 namespace small_shop.Data
 {
-    public class Event
+    public abstract class Event
     {
-        //private List<SmallShopData> Event_Customer_Name = new List<SmallShopData>();
-        //private List<SmallShopData> Event_Customer_Cart = new List<SmallShopData>();
-        //private List<SmallShopData> Event_Customer_Price = new List<SmallShopData>();
-        //private List<Customer> Event_Customer_Time = new List<Customer>();
-
-        public int ID { get; set; }
-        public Customer Customer { get; set; }
-        public Cart Cart { get; set; }
+        protected int ID;
         public DateTime TimeStamp { get; private set; }
+        protected String First_Name_Of_Buyer;
+        protected String Last_Name_Of_Buyer;
+        protected String Product_Name;
 
-        public Event(DateTime timeStamp)
-        {
-            TimeStamp = timeStamp;
-        }
-
-        public Event(int id, Customer customer, Cart cart, DateTime timeStamp) 
+        public Event(int id, Customer customer, DateTime timeStamp, Product product) 
         {
             ID = id;
-            Customer = customer;
-            Cart = cart;
             TimeStamp = timeStamp;
+            First_Name_Of_Buyer = customer.Get_Customer_Name();
+            Last_Name_Of_Buyer = customer.Get_Customer_Last_Name();
+            Product_Name = product.Get_Product_Name();
         }
 
+        public String Get_First_Name()
+        {
+            return this.First_Name_Of_Buyer;
+        }
 
-        /* public void Save_Customer_Data(String name, int price_value, int value)
-         {
-            // Event_Customer_Name[value].Get_Customer_Name();
-             Event_Customer_Price[value].Get_Final_Price_Of_The_Cart(value);
-            // Event_Customer_Cart[value].Get_Cart(value);
-         }
-        */
+        public String Get_Last_Name()
+        {
+            return this.Last_Name_Of_Buyer;
+        }
+
+        public String Get_Product_Name()
+        {
+            return this.Product_Name;
+        }
+
+        public int Get_ID()
+        {
+            return this.ID;
+        }
     }
 }

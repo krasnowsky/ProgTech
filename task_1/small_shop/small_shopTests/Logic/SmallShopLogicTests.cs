@@ -14,7 +14,7 @@ namespace small_shop.Logic.Tests
         {
             Data.SmallShopData data = new Data.SmallShopData();
             SmallShopLogic logic = new SmallShopLogic(data);
-            logic.Create_New_Customer("John", "Smith", "1");
+            logic.Create_New_Customer("John", "Smith", 1);
         }
 
         [TestMethod()]
@@ -37,7 +37,7 @@ namespace small_shop.Logic.Tests
             Data.SmallShopData data = new Data.SmallShopData();
             SmallShopLogic logic = new SmallShopLogic(data);
 
-            logic.Create_New_Customer("John", "Smith", "1");
+            logic.Create_New_Customer("John", "Smith", 1);
 
             data.Add_Product("milk", 2);
             data.Add_State(10, true);
@@ -56,10 +56,41 @@ namespace small_shop.Logic.Tests
             Data.SmallShopData data = new Data.SmallShopData();
             SmallShopLogic logic = new SmallShopLogic(data);
 
+            Data.Customer new_customer = new Data.Customer("Jon", "Smith", 1);
+            
             data.Add_Product("milk", 5);
             data.Add_State(100, true);
 
+            Data.PurchaseEvent new_event = new Data.PurchaseEvent(1, new_customer, DateTime.Now, new Data.Product("milk"));
+            data.Add_Event(new_event);
+
             Assert.AreEqual(50, logic.Buy("milk", 10, 5));
+        }
+
+        [TestMethod()]
+        public void EventAdditionTest()
+        {
+            Data.SmallShopData data = new Data.SmallShopData();
+            SmallShopLogic logic = new SmallShopLogic(data);
+
+            Data.PurchaseEvent new_event = new Data.PurchaseEvent(1, new Data.Customer("Jon", "Smith", 1), DateTime.Now, new Data.Product("milk"));
+
+            data.Add_Event(new_event);
+
+            Assert.AreEqual(1, new_event.Get_ID());
+        }
+
+        [TestMethod()]
+        public void EventRestockTest()
+        {
+            Data.SmallShopData data = new Data.SmallShopData();
+            SmallShopLogic logic = new SmallShopLogic(data);
+
+            Data.RestockEvent new_event = new Data.RestockEvent(1, new Data.Customer("Jon", "Smith", 1), DateTime.Now, new Data.Product("milk"));
+
+            data.Add_Event(new_event);
+
+            Assert.AreEqual("Jon", new_event.Get_First_Name());
         }
     }
 }

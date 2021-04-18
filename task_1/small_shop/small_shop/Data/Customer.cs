@@ -20,5 +20,10 @@ namespace small_shop.Data
         {
             return this.First_Name;
         }
+
+        public String Get_Customer_Last_Name()
+        {
+            return this.Last_Name;
+        }
     }
 }
