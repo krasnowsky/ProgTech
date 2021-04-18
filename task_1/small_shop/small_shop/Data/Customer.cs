@@ -8,9 +8,9 @@ namespace small_shop.Data
     {
         private String First_Name;
         private String Last_Name;
-        private String Customer_ID;
+        private int Customer_ID;
 
-        public Customer(String name, String lname, String id)
+        public Customer(String name, String lname, int id)
         {
             this.First_Name = name;
             this.Last_Name = lname;

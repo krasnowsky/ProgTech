@@ -23,7 +23,7 @@ namespace small_shop.Data
            return carts[value].Get_Good_Final_Price();
         }
 
-        public void Add_Customer(String fname, String lname, String customer_id)
+        public void Add_Customer(String fname, String lname, int customer_id)
         {
             Customer new_customer = new Customer(fname, lname, customer_id);
             this.customers.Add(new_customer);
@@ -31,12 +31,18 @@ namespace small_shop.Data
             Cart new_cart = new Cart();
             this.carts.Add(new_cart);
         }
-/*
-        public String Get_Customer_Name(String fname, String lname, String customer_id)
+
+        public int GetEventsNumber()
         {
-            return customers[customer_id].fname;
+            return events.Count;
         }
-*/
+
+        public Event GetEvent(int i)
+        {
+            return events.Find(x => x.ID == i);
+        }
+
+
         public Cart Get_Cart(int value)
         {
             return carts[value];

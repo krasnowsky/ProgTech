@@ -28,14 +28,14 @@ namespace small_shop.Data
             Cart = cart;
             TimeStamp = timeStamp;
         }
-        
 
-       /* public void Save_Customer_Data(String name, int price_value, int value)
-        {
-           // Event_Customer_Name[value].Get_Customer_Name();
-            Event_Customer_Price[value].Get_Final_Price_Of_The_Cart(value);
-           // Event_Customer_Cart[value].Get_Cart(value);
-        }
-       */
+
+        /* public void Save_Customer_Data(String name, int price_value, int value)
+         {
+            // Event_Customer_Name[value].Get_Customer_Name();
+             Event_Customer_Price[value].Get_Final_Price_Of_The_Cart(value);
+            // Event_Customer_Cart[value].Get_Cart(value);
+         }
+        */
     }
 }

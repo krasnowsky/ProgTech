@@ -9,15 +9,26 @@ namespace small_shop.Data.Tests
     [TestClass()]
     public class EventTests
     {
+
         static DateTime date_1 = new DateTime(2020, 5, 10);
-        public Event new_event = new Event(1, new Customer("Maria", "Golinska", "id1"), new Cart(), date_1);
+        static DateTime date_2 = new DateTime(2020, 10, 12);
+        public Event new_event = new PurchaseEvent(1, new Customer("Maria", "Golinska", 1), new Cart(), date_1);
 
         [TestMethod()]
-        public void EventTestCustomerName()
+        public void EventTestEventsNumber()
         {
-            Assert.AreEqual("Maria", Customer.Get_Customer_Name());
-            //new_event.Save_Customer_Data("Maria", 100, 1);
-            //Assert.AreEqual(100, new_event.Get_Final_Price_Of_The_Cart(0));
+
+            Assert.AreEqual(1, SmallShopData.GetEventsNumber());
+
+        }
+
+        [TestMethod()]
+        public void EventTestCustomerData()
+        {
+
+            Assert.AreEqual("Maria", SmallShopData.GetEvent(1).Customer.Name);
+            Assert.AreEqual("Golinska", SmallShopData.GetEvent(1).Customer.Surname);
+
         }
     }
 }

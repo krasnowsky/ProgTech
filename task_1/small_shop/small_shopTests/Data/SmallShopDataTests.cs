@@ -13,7 +13,7 @@ namespace small_shop.Data.Tests
         [TestMethod()]
         public void AddCustomerTest()
         {
-            data.Add_Customer("John", "Smith", "1");
+            data.Add_Customer("John", "Smith", 1);
 
             Assert.AreEqual(1, data.Get_Number_Of_Customer());
         }
