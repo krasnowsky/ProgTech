@@ -9,8 +9,8 @@ namespace small_shop.Data.Tests
     [TestClass()]
     public class EventTests
     {
-        readonly DateTime date_1 = new DateTime(2020, 5, 10);
-        public Event new_event = new Event(1, new Customer("Maria", "Golinska", "id1"), new Cart());
+        static DateTime date_1 = new DateTime(2020, 5, 10);
+        public Event new_event = new Event(1, new Customer("Maria", "Golinska", "id1"), new Cart(), date_1);
 
         [TestMethod()]
         public void EventTestCustomerName()

@@ -16,19 +16,17 @@ namespace small_shop.Data
         public Cart Cart { get; set; }
         public DateTime TimeStamp { get; private set; }
 
-        /*public Event(DateTime timeStamp)
+        public Event(DateTime timeStamp)
         {
             TimeStamp = timeStamp;
         }
-        */
-        //private String ID;
 
-        public Event(int id, Customer customer, Cart cart) 
+        public Event(int id, Customer customer, Cart cart, DateTime timeStamp) 
         {
             ID = id;
             Customer = customer;
             Cart = cart;
-            //TimeStamp = timeStamp;
+            TimeStamp = timeStamp;
         }
         
 
