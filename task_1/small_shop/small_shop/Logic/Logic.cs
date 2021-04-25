@@ -1,8 +1,9 @@
 ﻿using System;
+using small_shop.Data;
 
 namespace small_shop.Logic
 {
-    public class Logic
+    public class Logic : ILogic
     {
         private Data.Data data;
         public Logic(Data.Data outside_data)
