@@ -9,7 +9,8 @@ namespace small_shop.Data.Tests
     [TestClass()]
     public class SmallShopDataTests
     {
-        private SmallShopData data = new SmallShopData();
+        private Data data = new Data();
+
         [TestMethod()]
         public void AddCustomerTest()
         {

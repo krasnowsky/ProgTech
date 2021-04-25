@@ -2,10 +2,10 @@
 
 namespace small_shop.Logic
 {
-    public class SmallShopLogic
+    public class Logic
     {
-        private Data.SmallShopData data;
-        public SmallShopLogic(Data.SmallShopData outside_data)
+        private Data.Data data;
+        public Logic(Data.Data outside_data)
         {
             data = outside_data;
         }

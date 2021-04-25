@@ -4,14 +4,14 @@ using System.Text;
 
 namespace small_shop.Data
 {
-    public class SmallShopData : IData
+    public class Data : IData
     {
         private List<Customer> customers = new List<Customer>();
         private List<Cart> carts = new List<Cart>();
         private List<Product> products = new List<Product>();
         private List<State> states = new List<State>();
         private List<Event> events = new List<Event>();
-        public SmallShopData () { }
+        public Data () { }
 
         public void Add_Event(Event new_event)
         {
@@ -60,7 +60,7 @@ namespace small_shop.Data
 
         public void Add_Product(String name, int price)
         {
-            Data.Product new_product = new Data.Product(name, price);
+            small_shop.Data.Product new_product = new small_shop.Data.Product(name, price);
             if(products.Count == 0) this.products.Add(new_product);
             else
             {
