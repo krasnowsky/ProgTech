@@ -31,5 +31,7 @@ namespace small_shop.Data
         int Get_Product_Amount(int value);
 
         void Add_State(int value, bool state);
+
+        Customer Get_Customer(int value);
     }
 }

@@ -21,24 +21,6 @@ namespace small_shop.Data
             Product_Name = product.Get_Product_Name();
         }
 
-        public String Get_First_Name()
-        {
-            return this.First_Name_Of_Buyer;
-        }
-
-        public String Get_Last_Name()
-        {
-            return this.Last_Name_Of_Buyer;
-        }
-
-        public String Get_Product_Name()
-        {
-            return this.Product_Name;
-        }
-
-        public int Get_ID()
-        {
-            return this.ID;
-        }
+        public abstract void Change_Amount(String name, int value, int price);
     }
 }

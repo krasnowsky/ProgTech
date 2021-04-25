@@ -6,12 +6,6 @@ namespace small_shop.Data
 {
     public class DataRepository : IData
     {
-        /*private List<Customer> customers = new List<Customer>();
-        private List<Cart> carts = new List<Cart>();
-        private List<Product> products = new List<Product>();
-        private List<State> states = new List<State>();
-        private List<Event> events = new List<Event>();*/
-
         private DataContext context;
 
         public DataRepository(DataContext new_context) 
@@ -66,7 +60,7 @@ namespace small_shop.Data
 
         public void Add_Product(String name, int price)
         {
-            small_shop.Data.Product new_product = new small_shop.Data.Product(name, price);
+            Product new_product = new Product(name, price);
             if(context.products.Count == 0) this.context.products.Add(new_product);
             else
             {
@@ -90,7 +84,6 @@ namespace small_shop.Data
             return -1;
         }
 
-        //method to change a bit
         public void Change_Product_Amount(String name, int value, int price, int sign)
         {
             for (int i = 0; i < context.products.Count; i++)
@@ -117,6 +110,11 @@ namespace small_shop.Data
             State new_state = new State(value, state);
             context.states.Add(new_state);
         } 
+
+        public Customer Get_Customer(int value)
+        {
+            return context.customers[value];
+        }
 
     }
 }

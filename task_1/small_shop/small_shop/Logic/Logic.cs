@@ -22,7 +22,7 @@ namespace small_shop.Logic
         }
 
         public int Buy(String name, int amount, int price)
-        {     
+        {
             data.Change_Product_Amount(name, amount, price, -1);
             return amount*data.Get_Price(data.Get_Good_Id(name));
         }
