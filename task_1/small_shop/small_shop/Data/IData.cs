@@ -4,7 +4,7 @@ using System.Text;
 
 namespace small_shop.Data
 {
-    interface IData
+    public interface IData
     {
         void Add_Event(Event new_event);
 

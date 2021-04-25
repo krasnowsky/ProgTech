@@ -9,7 +9,8 @@ namespace small_shop.Data.Tests
     [TestClass()]
     public class SmallShopDataTests
     {
-        private Data data = new Data();
+        static DataContext context = new DataContext();
+        DataRepository data = new DataRepository(context);
 
         [TestMethod()]
         public void AddCustomerTest()
@@ -40,7 +41,7 @@ namespace small_shop.Data.Tests
         [TestMethod()]
         public void GetIdTest()
         {
-            data.Add_Product("milk", 5);
+            data.Add_Product("milk", 7);
 
             data.Add_Product("water", 5);
 

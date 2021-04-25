@@ -5,8 +5,8 @@ namespace small_shop.Logic
 {
     public class Logic : ILogic
     {
-        private Data.Data data;
-        public Logic(Data.Data outside_data)
+        private IData data;
+        public Logic(IData outside_data)
         {
             data = outside_data;
         }
