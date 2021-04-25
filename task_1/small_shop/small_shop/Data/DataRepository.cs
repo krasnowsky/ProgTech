@@ -47,7 +47,6 @@ namespace small_shop.Data
             return context.carts[value];
         }
 
-        //created only for the sake of tests
         public int Get_Number_Of_Customer()
         {
             return context.customers.Count;
@@ -110,11 +109,5 @@ namespace small_shop.Data
             State new_state = new State(value, state);
             context.states.Add(new_state);
         } 
-
-        public Customer Get_Customer(int value)
-        {
-            return context.customers[value];
-        }
-
     }
 }

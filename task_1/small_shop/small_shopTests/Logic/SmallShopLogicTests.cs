@@ -67,7 +67,7 @@ namespace small_shop.Logic.Tests
             data.Add_Product("milk", 5);
             data.Add_State(100, true);
 
-            Data.PurchaseEvent new_event = new Data.PurchaseEvent(1, new_customer, DateTime.Now, new Data.Product("milk"));
+            PurchaseEvent new_event = new PurchaseEvent(1, new_customer, DateTime.Now, new Product("milk"), new State(100, true),2);
             data.Add_Event(new_event);
 
             Assert.AreEqual(50, logic.Buy("milk", 10, 5));
@@ -80,7 +80,7 @@ namespace small_shop.Logic.Tests
             DataRepository data = new DataRepository(context);
             Logic logic = new Logic(data);
 
-            Data.PurchaseEvent new_event = new Data.PurchaseEvent(1, new Data.Customer("Jon", "Smith", 1), DateTime.Now, new Data.Product("milk"));
+            Data.PurchaseEvent new_event = new PurchaseEvent(1, new Data.Customer("Jon", "Smith", 1), DateTime.Now, new Product("milk"), new State(20, true), 4);
 
             data.Add_Event(new_event);
 
@@ -94,7 +94,7 @@ namespace small_shop.Logic.Tests
             DataRepository data = new DataRepository(context);
             Logic logic = new Logic(data);
 
-            Data.RestockEvent new_event = new Data.RestockEvent(1, new Data.Customer("Jon", "Smith", 1), DateTime.Now, new Data.Product("milk"));
+            Data.RestockEvent new_event = new Data.RestockEvent(1, new Data.Customer("Jon", "Smith", 1), DateTime.Now, new Data.Product("milk"), new State(30, true), 10);
 
             data.Add_Event(new_event);
 

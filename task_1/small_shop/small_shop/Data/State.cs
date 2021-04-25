@@ -9,7 +9,7 @@ namespace small_shop.Data
         private int Amount_Of_Good;
         private bool Is_Available;
 
-        public State(int value, bool state) 
+        public State(int value, bool state)
         {
             this.Amount_Of_Good = value;
             this.Is_Available = state;
@@ -35,9 +35,16 @@ namespace small_shop.Data
             return Is_Available;
         }
 
-        public void Set_Availability(bool state)
+        public void Restock(int amount)
         {
-            this.Is_Available = state;
+            Is_Available = true;
+            Amount_Of_Good = amount;
+        }
+
+        public void Purchase(int amount)
+        {
+            Is_Available = false;
+            Amount_Of_Good -= amount;
         }
     }
 }
