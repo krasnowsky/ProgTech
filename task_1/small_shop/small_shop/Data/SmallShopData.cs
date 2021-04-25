@@ -4,7 +4,7 @@ using System.Text;
 
 namespace small_shop.Data
 {
-    public class SmallShopData
+    public class SmallShopData : IData
     {
         private List<Customer> customers = new List<Customer>();
         private List<Cart> carts = new List<Cart>();
