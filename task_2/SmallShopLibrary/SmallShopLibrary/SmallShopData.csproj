@@ -8,6 +8,7 @@
     <Folder Include="Database\" />
     <Folder Include="LINQ to SQL\" />
     <Folder Include="API\" />
+    <Folder Include="DataFiles\" />
   </ItemGroup>
 
 </Project>
