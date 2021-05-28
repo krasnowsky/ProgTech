@@ -7,14 +7,13 @@ using LibraryShop.API;
 
 namespace LibraryShop.data_files
 {
-    class DataManager : IDataManager
+    public class DataManager : IDataManager
     {
-        private LibraryDataContext context;
+        private ShopDataContext context;
 
         public DataManager() {
 
-            context = new LibraryDataContext();
-     
+            context = new ShopDataContext();
         }
 
         public ICustomer Transform(Customers Customer)
@@ -63,7 +62,7 @@ namespace LibraryShop.data_files
                     name = Name,
                     id = ID
                 };
-                context.Readers.InsertOnSubmit(NewReader);
+                context.Customers.InsertOnSubmit(NewReader);
                 context.SubmitChanges();
                 return true;
             }
@@ -85,10 +84,10 @@ namespace LibraryShop.data_files
 
         public bool DeleteCustomer(int ID)
         {
-            Customers Customer = context.Readers.Where(customer => customer.id == ID).SingleOrDefault();
+            Customers Customer = context.Customers.Where(customer => customer.id == ID).SingleOrDefault();
             if (GetCustomer(ID) != null && !ID.Equals(null))
             {
-                context.Readers.DeleteOnSubmit(Customer);
+                context.Customers.DeleteOnSubmit(Customer);
                 context.SubmitChanges();
                 return true;
             }
@@ -97,9 +96,9 @@ namespace LibraryShop.data_files
         #endregion
 
         #region Product
-        public IEnumerable<IProduct> GetProduct()
+        public IEnumerable<IProduct> GetProducts()
         {
-            var productsDatabase = from productsDatabase in context.Products select productsDatabase;
+            var productsDatabase = from productDatabase in context.Products select productDatabase;
             List<IProduct> list = new List<IProduct>();
             foreach (Products Product in productsDatabase)
             {
@@ -135,10 +134,10 @@ namespace LibraryShop.data_files
                 Products NewProduct = new Products
                 {
                     id = ID,
-                    title = Name,
+                    name = Name,
                     isAvailable = true,
                 };
-                context.Books.InsertOnSubmit(NewProduct);
+                context.Products.InsertOnSubmit(NewProduct);
                 context.SubmitChanges();
                 return true;
             }
@@ -151,7 +150,7 @@ namespace LibraryShop.data_files
             if (!ID.Equals(null) && !Name.Equals(null) && GetProductByID(ID) != null)
             {
                 Product.id = ID;
-                Product.title = Name;
+                Product.name = Name;
                 context.SubmitChanges();
                 return true;
             }
@@ -210,7 +209,7 @@ namespace LibraryShop.data_files
             List<IEvent> list = new List<IEvent>();
             foreach (Events Event in eventDb)
             {
-                if (Event.reader_id.Equals(Customer_id))
+                if (Event.customer_id.Equals(Customer_id))
                 {
                     list.Add(Transform(Event));
                 }

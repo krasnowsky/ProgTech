@@ -41,11 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ICustomerData.cs" />
+    <Compile Include="API\ICustomerService.cs" />
+    <Compile Include="API\IEventData.cs" />
+    <Compile Include="API\IEventService.cs" />
+    <Compile Include="API\IProductData.cs" />
+    <Compile Include="API\IProductService.cs" />
+    <Compile Include="data_files\CustomerData.cs" />
+    <Compile Include="data_files\CustomerService.cs" />
+    <Compile Include="data_files\EventData.cs" />
+    <Compile Include="data_files\EventService.cs" />
+    <Compile Include="data_files\ProductData.cs" />
+    <Compile Include="data_files\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="API\" />
-    <Folder Include="data_files\" />
+    <ProjectReference Include="..\LibraryShop\Data.csproj">
+      <Project>{425B170D-46D0-483A-8EB1-5D60C8D08E85}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

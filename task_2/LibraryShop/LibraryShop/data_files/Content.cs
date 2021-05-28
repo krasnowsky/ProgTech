@@ -7,7 +7,7 @@ using LibraryShop.API;
 
 namespace LibraryShop.data_files
 {
-    class Content : IContent
+    public class Content : IContent
     {
         public IProduct ProductInstance { get; set; }
         public int Quantity { get; set; }
