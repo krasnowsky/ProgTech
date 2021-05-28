@@ -48,6 +48,7 @@
     <Compile Include="API\IProduct.cs" />
     <Compile Include="data_files\Content.cs" />
     <Compile Include="data_files\Customer.cs" />
+    <Compile Include="data_files\DataManager.cs" />
     <Compile Include="data_files\Event.cs" />
     <Compile Include="data_files\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
