@@ -38,8 +38,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Content="Add Event" Grid.Column="0" Grid.Row="0" Command="{Binding AddEventCommand}"/>
-            <Button Content="Update Event Book" Grid.Column="0" Grid.Row="1" Width="Auto" Command="{Binding UpdateEventProductCommand}"/>
-            <Button Content="Update Event Reader" Grid.Column="0" Grid.Row="2" Width="Auto" Command="{Binding UpdateEventCustomerCommand}"/>
+            <Button Content="Update Event Product" Grid.Column="0" Grid.Row="1" Width="Auto" Command="{Binding UpdateEventProductCommand}"/>
+            <Button Content="Update Event Customer" Grid.Column="0" Grid.Row="2" Width="Auto" Command="{Binding UpdateEventCustomerCommand}"/>
         </Grid>
         <Button Content="Delete Event" Grid.Column="0" Grid.Row="1" Width="Auto" Command="{Binding DeleteEventCommand}"/>
         <Grid Grid.Column="1" Grid.Row="0">

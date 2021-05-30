@@ -43,8 +43,6 @@ namespace UnitTest.Data
 
             Assert.IsTrue(manager.AddEvent(1, DateTime.Now, manager.GetProductByID(1).ProductID, manager.GetCustomer(1).Customer_id));
 
-            //Assert.IsFalse(manager.GetBookByID(1).IsAvailable);
-
             Assert.IsTrue(manager.UpdateEventProduct(manager.GetEventByID(1).Event_id, 2));
             Assert.IsTrue(manager.UpdateEventCustomer(manager.GetEventByID(1).Event_id, 2));
 

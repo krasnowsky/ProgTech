@@ -77,11 +77,11 @@ namespace Presentation.ViewModel
             bool added = service.AddProduct(ID, Name);
             if (added)
             {
-                text = "Book added";
+                text = "Product added";
             }
             else
             {
-                text = "Cannot add Book";
+                text = "Cannot add Product";
             }
             MessageBoxShowDelegate(Text);
         }
