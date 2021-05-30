@@ -7,7 +7,7 @@ using Service.API;
 
 namespace Service.data_files
 {
-    class ProductData : IProductData
+    public class ProductData : IProductData
     {
         public string Name { get; set; }
         public int ProductID { get; set; }

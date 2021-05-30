@@ -26,7 +26,7 @@ namespace LibraryShop.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=Shop;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-MVE74CA;Initial Catalog=Shop;Integrated Security=True")]
         public string ShopConnectionString {
             get {
                 return ((string)(this["ShopConnectionString"]));

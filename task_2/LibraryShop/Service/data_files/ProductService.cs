@@ -9,7 +9,7 @@ using LibraryShop.data_files;
 
 namespace Service.data_files
 {
-    class ProductService : IProductService
+    public class ProductService : IProductService
     {
         private IDataManager manager;
 

@@ -9,7 +9,7 @@ using Service.API;
 
 namespace Service.data_files
 {
-    class EventService : IEventService
+    public class EventService : IEventService
     {
         private IDataManager manager;
 

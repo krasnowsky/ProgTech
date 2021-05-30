@@ -284,5 +284,12 @@ namespace LibraryShop.data_files
         }
         #endregion
 
+        public void NukeTheData()
+        {
+            context.ExecuteCommand("DELETE FROM Events");
+            context.ExecuteCommand("DELETE FROM Customers");
+            context.ExecuteCommand("DELETE FROM Products");
+        }
+
     }
 }

@@ -30,12 +30,12 @@ namespace LibraryShop
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertEvents(Events instance);
-    partial void UpdateEvents(Events instance);
-    partial void DeleteEvents(Events instance);
     partial void InsertCustomers(Customers instance);
     partial void UpdateCustomers(Customers instance);
     partial void DeleteCustomers(Customers instance);
+    partial void InsertEvents(Events instance);
+    partial void UpdateEvents(Events instance);
+    partial void DeleteEvents(Events instance);
     partial void InsertProducts(Products instance);
     partial void UpdateProducts(Products instance);
     partial void DeleteProducts(Products instance);
@@ -71,19 +71,19 @@ namespace LibraryShop
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Events> Events
-		{
-			get
-			{
-				return this.GetTable<Events>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Customers> Customers
 		{
 			get
 			{
 				return this.GetTable<Customers>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Events> Events
+		{
+			get
+			{
+				return this.GetTable<Events>();
 			}
 		}
 		
@@ -93,6 +93,120 @@ namespace LibraryShop
 			{
 				return this.GetTable<Products>();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
+	public partial class Customers : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _name;
+		
+		private EntitySet<Events> _Events;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    #endregion
+		
+		public Customers()
+		{
+			this._Events = new EntitySet<Events>(new Action<Events>(this.attach_Events), new Action<Events>(this.detach_Events));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="Char(30)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customers_Events", Storage="_Events", ThisKey="id", OtherKey="customer_id")]
+		public EntitySet<Events> Events
+		{
+			get
+			{
+				return this._Events;
+			}
+			set
+			{
+				this._Events.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Events(Events entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customers = this;
+		}
+		
+		private void detach_Events(Events entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customers = null;
 		}
 	}
 	
@@ -312,120 +426,6 @@ namespace LibraryShop
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
-	public partial class Customers : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _name;
-		
-		private EntitySet<Events> _Events;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    #endregion
-		
-		public Customers()
-		{
-			this._Events = new EntitySet<Events>(new Action<Events>(this.attach_Events), new Action<Events>(this.detach_Events));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="Char(30)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customers_Events", Storage="_Events", ThisKey="id", OtherKey="customer_id")]
-		public EntitySet<Events> Events
-		{
-			get
-			{
-				return this._Events;
-			}
-			set
-			{
-				this._Events.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Events(Events entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customers = this;
-		}
-		
-		private void detach_Events(Events entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customers = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Products")]
 	public partial class Products : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -498,7 +498,7 @@ namespace LibraryShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isAvaliable", DbType="bool")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isAvaliable", DbType="bit")]
 		public System.Nullable<bool> isAvaliable
 		{
 			get

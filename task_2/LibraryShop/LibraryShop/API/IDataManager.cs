@@ -38,5 +38,7 @@ namespace LibraryShop.API
         bool UpdateEventCustomer(int ID, int customer_id);
         bool DeleteEvent(int ID);
         #endregion
+
+        void NukeTheData();
     }
 }

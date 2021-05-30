@@ -9,7 +9,7 @@ using Service.API;
 
 namespace Service.data_files
 {
-    class CustomerService : ICustomerService
+    public class CustomerService : ICustomerService
     {
         private IDataManager manager;
 

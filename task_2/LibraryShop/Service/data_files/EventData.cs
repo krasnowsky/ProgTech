@@ -9,7 +9,7 @@ using Service.API;
 
 namespace Service.data_files
 {
-    class EventData : IEventData
+    public class EventData : IEventData
     {
         public int EventID { get; set; }
         public DateTime? Date { get; set; }

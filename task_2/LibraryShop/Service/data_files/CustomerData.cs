@@ -9,7 +9,7 @@ using Service.API;
 
 namespace Service.data_files
 {
-    class CustomerData : ICustomerData
+    public class CustomerData : ICustomerData
     {
         public string Name { get; set; }
         public int CustomerID { get; set; }
