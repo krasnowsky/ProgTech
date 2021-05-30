@@ -41,12 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ICustomerModelData.cs" />
+    <Compile Include="API\ICustomerModelView.cs" />
+    <Compile Include="API\IEventModelData.cs" />
+    <Compile Include="API\IEventModelView.cs" />
+    <Compile Include="API\IProductModelData.cs" />
+    <Compile Include="API\IProductModelView.cs" />
+    <Compile Include="Model\CustomerModelView.cs" />
+    <Compile Include="Model\CustomerModelData.cs" />
+    <Compile Include="Model\EventModelData.cs" />
+    <Compile Include="Model\EventModelView.cs" />
+    <Compile Include="Model\ProductModelData.cs" />
+    <Compile Include="Model\ProductModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="API\" />
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{326204d4-8832-4e4b-bb99-a82f0794f7c4}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

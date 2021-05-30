@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryShop.API;
+using LibraryShop.data_files;
+using LibraryShop;
 
 namespace LibraryShop.data_files
 {
@@ -135,7 +137,7 @@ namespace LibraryShop.data_files
                 {
                     id = ID,
                     name = Name,
-                    isAvailable = true,
+                    isAvaliable = true,
                 };
                 context.Products.InsertOnSubmit(NewProduct);
                 context.SubmitChanges();
@@ -162,7 +164,7 @@ namespace LibraryShop.data_files
             Products Product = context.Products.Where(i => i.id == ID).SingleOrDefault();
             if (GetProductByID(ID.GetValueOrDefault()) != null && !ID.Equals(null))
             {
-                Product.isAvailable = true;
+                Product.isAvaliable = true;
                 context.SubmitChanges();
             }
         }
@@ -225,7 +227,7 @@ namespace LibraryShop.data_files
                 Customers Customer = context.Customers.Where(i => i.id == CustomerID).SingleOrDefault();
                 if (GetProductByID(ProductID) != null && GetCustomer(CustomerID) != null && GetEventByID(EventID) == null)
                 {
-                    Product.isAvailable = false;
+                    Product.isAvaliable = false;
 
                     Events NewEvent = new Events
                     {

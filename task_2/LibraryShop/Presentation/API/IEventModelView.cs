@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.API
+namespace Presentation.API
 {
-    public interface IEventData
+    public interface IEventModelView
     {
         int EventID { get; set; }
         DateTime? Date { get; set; }

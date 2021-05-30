@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    interface IProductService
+    public interface IProductService
     {
         IEnumerable<IProductData> GetProducts();
         IProductData GetProductByID(int ID);

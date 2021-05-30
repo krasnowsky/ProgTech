@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.API
+namespace Presentation.API
 {
-    public interface ICustomerData
+    public interface ICustomerModelView
     {
         string Name { get; set; }
         int CustomerID { get; set; }

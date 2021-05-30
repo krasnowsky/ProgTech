@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    interface IProductData
+    public interface IProductData
     {
         string Name { get; set; }
 

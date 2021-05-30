@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    interface IEventService
+    public interface IEventService
     {
         IEnumerable<IEventData> GetEvents();
         IEventData GetEventByID(int ID);

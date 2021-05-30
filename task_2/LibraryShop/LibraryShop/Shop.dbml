@@ -1,26 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Class="ShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="" Member="Events">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Shop" Class="ShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=Shop;Integrated Security=True" SettingsObjectName="LibraryShop.Properties.Settings" SettingsPropertyName="ShopConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Events" Member="Events">
     <Type Name="Events">
-      <Column Name="id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="date" Type="System.DateTime" CanBeNull="false" />
-      <Column Name="product_id" Type="System.Int32" CanBeNull="false" />
-      <Column Name="customer_id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Customers_Events" Member="Customers" ThisKey="customer_id" OtherKey="id" Type="Customers" IsForeignKey="true" />
       <Association Name="Products_Events" Member="Products" ThisKey="product_id" OtherKey="id" Type="Products" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="" Member="Customers">
+  <Table Name="dbo.Customers" Member="Customers">
     <Type Name="Customers">
-      <Column Name="id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="Char(30)" CanBeNull="true" />
       <Association Name="Customers_Events" Member="Events" ThisKey="id" OtherKey="customer_id" Type="Events" />
     </Type>
   </Table>
-  <Table Name="" Member="Products">
+  <Table Name="dbo.Products" Member="Products">
     <Type Name="Products">
-      <Column Name="id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" CanBeNull="false" />
-      <Column Name="isAvaliable" Member="isAvailable" Storage="_isAvaliable" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="isAvaliable" Type="System.Boolean" DbType="bool" CanBeNull="true" />
       <Association Name="Products_Events" Member="Events" ThisKey="id" OtherKey="product_id" Type="Events" />
     </Type>
   </Table>

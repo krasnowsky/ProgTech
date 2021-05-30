@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    interface ICustomerService
+    public interface ICustomerService
     {
         IEnumerable<ICustomerData> GetCustomers();
         ICustomerData GetCustomer(int ID);

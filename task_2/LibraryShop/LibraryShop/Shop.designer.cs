@@ -20,8 +20,9 @@ namespace LibraryShop
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "ShopDatabase")]
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Shop")]
 	public partial class ShopDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -38,14 +39,14 @@ namespace LibraryShop
     partial void InsertProducts(Products instance);
     partial void UpdateProducts(Products instance);
     partial void DeleteProducts(Products instance);
-		#endregion
-
-		public ShopDataContext() :
-		base(global::LibraryShop.Properties.Settings.Default.ShopDatabaseConnectionString, mappingSource)
+    #endregion
+		
+		public ShopDataContext() : 
+				base(global::LibraryShop.Properties.Settings.Default.ShopConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
-
+		
 		public ShopDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
@@ -95,7 +96,7 @@ namespace LibraryShop
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Events")]
 	public partial class Events : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -103,11 +104,11 @@ namespace LibraryShop
 		
 		private int _id;
 		
-		private System.DateTime _date;
+		private System.Nullable<System.DateTime> _date;
 		
-		private int _product_id;
+		private System.Nullable<int> _product_id;
 		
-		private int _customer_id;
+		private System.Nullable<int> _customer_id;
 		
 		private EntityRef<Customers> _Customers;
 		
@@ -119,11 +120,11 @@ namespace LibraryShop
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OndateChanging(System.DateTime value);
+    partial void OndateChanging(System.Nullable<System.DateTime> value);
     partial void OndateChanged();
-    partial void Onproduct_idChanging(int value);
+    partial void Onproduct_idChanging(System.Nullable<int> value);
     partial void Onproduct_idChanged();
-    partial void Oncustomer_idChanging(int value);
+    partial void Oncustomer_idChanging(System.Nullable<int> value);
     partial void Oncustomer_idChanged();
     #endregion
 		
@@ -134,7 +135,7 @@ namespace LibraryShop
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id
 		{
 			get
@@ -154,8 +155,8 @@ namespace LibraryShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date")]
-		public System.DateTime date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> date
 		{
 			get
 			{
@@ -174,8 +175,8 @@ namespace LibraryShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_product_id")]
-		public int product_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_product_id", DbType="Int")]
+		public System.Nullable<int> product_id
 		{
 			get
 			{
@@ -198,8 +199,8 @@ namespace LibraryShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer_id")]
-		public int customer_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer_id", DbType="Int")]
+		public System.Nullable<int> customer_id
 		{
 			get
 			{
@@ -249,7 +250,7 @@ namespace LibraryShop
 					}
 					else
 					{
-						this._customer_id = default(int);
+						this._customer_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Customers");
 				}
@@ -283,7 +284,7 @@ namespace LibraryShop
 					}
 					else
 					{
-						this._product_id = default(int);
+						this._product_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Products");
 				}
@@ -311,7 +312,7 @@ namespace LibraryShop
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
 	public partial class Customers : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -339,7 +340,7 @@ namespace LibraryShop
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id
 		{
 			get
@@ -359,7 +360,7 @@ namespace LibraryShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="Char(30)")]
 		public string name
 		{
 			get
@@ -425,7 +426,7 @@ namespace LibraryShop
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Products")]
 	public partial class Products : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -435,7 +436,7 @@ namespace LibraryShop
 		
 		private string _name;
 		
-		private bool _isAvaliable;
+		private System.Nullable<bool> _isAvaliable;
 		
 		private EntitySet<Events> _Events;
 		
@@ -447,8 +448,8 @@ namespace LibraryShop
     partial void OnidChanged();
     partial void OnnameChanging(string value);
     partial void OnnameChanged();
-    partial void OnisAvailableChanging(bool value);
-    partial void OnisAvailableChanged();
+    partial void OnisAvaliableChanging(System.Nullable<bool> value);
+    partial void OnisAvaliableChanged();
     #endregion
 		
 		public Products()
@@ -457,7 +458,7 @@ namespace LibraryShop
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id
 		{
 			get
@@ -477,7 +478,7 @@ namespace LibraryShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="Char(30)")]
 		public string name
 		{
 			get
@@ -497,8 +498,8 @@ namespace LibraryShop
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="isAvaliable", Storage="_isAvaliable")]
-		public bool isAvailable
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isAvaliable", DbType="bool")]
+		public System.Nullable<bool> isAvaliable
 		{
 			get
 			{
@@ -508,11 +509,11 @@ namespace LibraryShop
 			{
 				if ((this._isAvaliable != value))
 				{
-					this.OnisAvailableChanging(value);
+					this.OnisAvaliableChanging(value);
 					this.SendPropertyChanging();
 					this._isAvaliable = value;
-					this.SendPropertyChanged("isAvailable");
-					this.OnisAvailableChanged();
+					this.SendPropertyChanged("isAvaliable");
+					this.OnisAvaliableChanged();
 				}
 			}
 		}

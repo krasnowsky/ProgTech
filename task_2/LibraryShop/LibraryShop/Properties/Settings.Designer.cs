@@ -26,11 +26,10 @@ namespace LibraryShop.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=wszystko_ok\\SQLEXPRESS;Initial Catalog=ShopDatabase;Integrated Securi" +
-            "ty=True")]
-        public string ShopDatabaseConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=Shop;Integrated Security=True")]
+        public string ShopConnectionString {
             get {
-                return ((string)(this["ShopDatabaseConnectionString"]));
+                return ((string)(this["ShopConnectionString"]));
             }
         }
     }

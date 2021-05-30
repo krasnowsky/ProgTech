@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.API
+namespace Presentation.API
 {
-    public interface ICustomerData
+    public interface IProductModelView
     {
         string Name { get; set; }
-        int CustomerID { get; set; }
+        int ProductID { get; set; }
+        bool isAvailable { get; set; }
     }
 }
