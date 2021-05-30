@@ -54,10 +54,10 @@
     <Compile Include="Model\ProductModelData.cs" />
     <Compile Include="Model\ProductModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\MVVM\RelayCommand.cs" />
+    <Compile Include="ViewModel\MVVM\ViewModelBase.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{326204d4-8832-4e4b-bb99-a82f0794f7c4}</Project>
